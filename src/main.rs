@@ -1,3 +1,6 @@
+mod bayesian_allocator;
+use bayesian_allocator::{BayesianAllocator, MemoryUsageData};
+
 // Derive the Debug trait to allow printing of MemoryBlock
 #[derive(Debug)]
 struct MemoryBlock {
@@ -35,5 +38,21 @@ fn simulate_memory_usage() {
 // The entry point of the application
 fn main() {
     simulate_memory_usage();
+
+    // Create an instance of the Bayesian Allocator
+    let mut allocator = BayesianAllocator::new();
+
+    // Example: Update the allocator with simulated memory usage data
+    // This is where you would use real data in a production environment
+    let example_data = MemoryUsageData {
+        // Populate with example or simulated data
+    };
+    allocator.update_model(&example_data);
+
+    // Use the allocator to make a memory allocation decision
+    let allocation_decision = allocator.allocate();
+
+    // Output or log the allocation decision
+    println!("Allocation Decision: {:?}", allocation_decision);
 }
 
