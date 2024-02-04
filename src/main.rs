@@ -46,8 +46,10 @@ fn main() {
     // This is where you would use real data in a production environment
     let example_data = MemoryUsageData {
         // Populate with example or simulated data
+        size: 1024, // Example size, adjust as needed for your test
+
     };
-    allocator.update_model(&example_data);
+    allocator.update_parameters(&example_data);
 
     // Use the allocator to make a memory allocation decision
     let allocation_decision = allocator.allocate();
